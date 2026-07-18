@@ -18,7 +18,7 @@ impl Solution {
             "Invalid input string"
         );
 
-        if s.len() % 2 != 0 {
+        if !s.len().is_multiple_of(2) {
             return false;
         }
 
@@ -40,7 +40,7 @@ impl Solution {
                 }
             }
         }
-        return stack.is_empty();
+        stack.is_empty()
     }
 }
 
