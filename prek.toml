@@ -16,4 +16,3 @@ hooks = [
     { id = "just lint", name = "just lint", language = "system", entry = "just lint", pass_filenames = false },
     { id = "just test", name = "just test", language = "system", entry = "just test", pass_filenames = false },
 ]
-

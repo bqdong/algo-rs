@@ -17,3 +17,6 @@ fix:
 
 test:
     cargo t
+
+run-hook:
+    prek run --show-diff-on-failure --color=always --all-files
