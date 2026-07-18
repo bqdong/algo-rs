@@ -28,6 +28,11 @@ pub struct Solution;
 
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {
+        if !s.is_ascii() {
+            // prevent panic at following string slice operation
+            panic!("Illegal input string");
+        }
+
         let mut result = 0;
 
         let mut i = 0;
