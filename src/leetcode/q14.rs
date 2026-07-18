@@ -25,7 +25,7 @@ impl Solution {
             .expect("Input str number is zero, invlaid");
 
         let mut i: usize = 0;
-        while i < rng {
+        while i <= rng {
             let same = strs
                 .iter()
                 .map(|x| &x[0..i])
@@ -34,14 +34,13 @@ impl Solution {
                 .all(|w| w[0] == w[1]);
 
             if !same {
-                break;
+                return strs[0].clone()[0..(i - 1)].to_string();
             }
 
             i += 1;
         }
 
-        let bound = if i > 0 { i - 1 } else { 0 };
-        strs[0].clone()[0..bound].to_string()
+        strs[0].clone()[0..rng].to_string()
     }
 }
 
@@ -67,6 +66,14 @@ mod tests {
             },
             TestCase {
                 strs: vec!["dog".to_string(), "racecar".to_string(), "car".to_string()],
+                answer: "".to_string(),
+            },
+            TestCase {
+                strs: vec!["ab".to_string(), "a".to_string()],
+                answer: "a".to_string(),
+            },
+            TestCase {
+                strs: vec!["a".to_string(), "b".to_string()],
                 answer: "".to_string(),
             },
         ]
