@@ -36,9 +36,7 @@ impl Solution {
         let mut start = 0;
         let mut end = result.len() - 1;
         while start < end {
-            let temp = result[start];
-            result[start] = result[end];
-            result[end] = temp;
+            result.swap(start, end);
             start += 1;
             end -= 1;
         }
