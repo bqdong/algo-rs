@@ -14,4 +14,5 @@ pub mod q58;
 pub mod q66;
 pub mod q67;
 pub mod q69;
+pub mod q70;
 pub mod q9;

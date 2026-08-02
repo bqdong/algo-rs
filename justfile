@@ -7,7 +7,7 @@ alias l := lint
 
 fmt:
     just --fmt --unstable
-    cargo fmt
+    cargo fmt -- --config format_code_in_doc_comments=true
 
 lint:
     cargo clippy
