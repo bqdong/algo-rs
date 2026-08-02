@@ -4,9 +4,9 @@
 //! 如果不存在，返回空串。
 //!
 //! 取值范围：
-//! - 1 <= strs.length <= 200
-//! - 0 <= strs[i].length <= 200
-//! - strs[i] 如果非空，则仅由小写英文字母组成
+//! - $1 <= strs.length <= 200$
+//! - $0 <= strs[i].length <= 200$
+//! - `strs[i]` 如果非空，则仅由小写英文字母组成
 
 pub struct Solution;
 

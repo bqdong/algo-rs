@@ -4,9 +4,9 @@
 //! 输出一个数组存储该整数加一的结果的各个位的数字。
 //!
 //! 限制条件：
-//! - 1 <= digits.length <= 100
-//! - 0 <= digits[i] <= 9
-//! - digitals 不包含任何前导 0
+//! - $1 <= digits.length <= 100$
+//! - $0 <= digits[i] <= 9$
+//! - `digitals` 不包含任何前导 0
 
 pub struct Solution;
 

@@ -3,8 +3,8 @@
 //! 给定一个字符串 `haystack` 和 `needle`，在 `haystack` 中找出 `needle`
 //! 第一次出现的下标，找不到返回 -1 。
 //!
-//! 取值范围：
-//! - 1 <= haystack.length, needle.length <= 10^4
+//! **取值范围：**
+//! - $1 <= haystack.length, needle.length <= 10^4$
 //! - 两个字符串都由小写英文字符组成
 
 pub struct Solution;

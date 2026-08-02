@@ -1,5 +1,8 @@
 //! 练习 [LeetCode](https://leetcode.cn/) 上的题目
 
+// 注释里的 `$nums[i]$` 等下标写法会被 rustdoc 误当成 intra-doc link
+#![allow(rustdoc::broken_intra_doc_links)]
+
 pub mod q1;
 pub mod q13;
 pub mod q14;

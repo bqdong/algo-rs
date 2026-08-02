@@ -14,3 +14,36 @@ jobs:
         with:
           tool: just
       - uses: j178/prek-action@v2
+
+  deploy-docs:
+    # 排在 hook 检查之后,且只在 push 时部署(PR 只跑 prek)
+    if: github.event_name == 'push'
+    needs: prek
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build docs with MathJax
+        env:
+          RUSTDOCFLAGS: --html-in-header mathjax.html
+        run: cargo doc --no-deps
+
+      # 新版 rustdoc 不生成根跳转页,补一个让 Pages 根路径自动跳到 crate 页
+      - name: Generate root redirect
+        run: printf '<meta http-equiv="refresh" content="0; url=algo_rs/index.html">' > target/doc/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: target/doc
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

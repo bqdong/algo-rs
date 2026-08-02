@@ -4,10 +4,10 @@
 //! 结果存储在 `nums1 数组中。`m` 和 `n` 分别为两个数组的元素个数。
 //!
 //! **限制条件：**
-//! - nums1.length = m + n
-//! - nums2.lenght = n
-//! - 0 <= m, n <= 200
-//! - 1 <= m + n <= 200
+//! - $nums1.length = m + n$
+//! - $nums2.lenght = n$
+//! - $0 <= m, n <= 200$
+//! - $1 <= m + n <= 200$
 //! - $ -10^9 <= nums1[i], nums2[j] <= 10^9 $
 
 pub struct Solution;
