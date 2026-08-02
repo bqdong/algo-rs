@@ -5,6 +5,11 @@ on:
   pull_request:
     branches: [main]
 
+# 同一 ref 的 run 串行执行,新 push 取消旧 run(避免并发部署和陈旧文档上线)
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   prek:
     runs-on: ubuntu-latest
@@ -30,6 +35,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
 
       - name: Build docs with MathJax
         env:
@@ -40,10 +47,15 @@ jobs:
       - name: Generate root redirect
         run: printf '<meta http-equiv="refresh" content="0; url=algo_rs/index.html">' > target/doc/index.html
 
+      # 每次 run/attempt 用唯一 artifact 名:重跑失败 job 时旧 attempt 的 artifact 不会清理,
+      # 同名会触发 deploy-pages 的 "Multiple artifacts named github-pages" 报错
       - uses: actions/upload-pages-artifact@v3
         with:
           path: target/doc
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
