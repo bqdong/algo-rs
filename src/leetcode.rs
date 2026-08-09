@@ -11,6 +11,7 @@ pub mod q104;
 pub mod q108;
 pub mod q110;
 pub mod q111;
+pub mod q112;
 pub mod q13;
 pub mod q14;
 pub mod q20;
