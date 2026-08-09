@@ -32,8 +32,7 @@ impl Solution {
         }
 
         let left_num = target_sum - root_borrow.val;
-        return Solution::has_path_sum(left_tree, left_num)
-            || Solution::has_path_sum(right_tree, left_num);
+        Solution::has_path_sum(left_tree, left_num) || Solution::has_path_sum(right_tree, left_num)
     }
 }
 
