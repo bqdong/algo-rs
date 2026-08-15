@@ -17,6 +17,8 @@ fix:
 
 test:
     cargo t
+    @echo "\n\033[32mStart to test in release mode!\033[0m\n"
+    cargo t --release
 
 run-hook:
     prek run --show-diff-on-failure --color=always --all-files
