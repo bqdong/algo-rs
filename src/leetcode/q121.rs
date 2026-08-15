@@ -22,14 +22,12 @@ impl Solution {
             .iter()
             .rev()
             .fold(Vec::new(), |mut acc, x| {
-                if acc.is_empty() {
-                    acc.push(x.to_owned());
-                } else if *x > acc[acc.len() - 1] {
+                if acc.is_empty() || *x > acc[acc.len() - 1] {
                     acc.push(x.to_owned());
                 } else {
                     acc.push(acc[acc.len() - 1]);
                 }
-                return acc;
+                acc
             })
             .into_iter()
             .rev()
