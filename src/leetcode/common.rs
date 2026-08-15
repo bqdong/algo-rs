@@ -68,3 +68,11 @@ impl TryFrom<Vec<Option<i32>>> for TreeNode {
         Ok(Rc::try_unwrap(root).ok().map(RefCell::into_inner).unwrap())
     }
 }
+
+pub fn to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
+    if nums.is_empty() {
+        return None;
+    }
+
+    Some(TryInto::<TreeNode>::try_into(nums).unwrap()).map(|t| Rc::new(RefCell::new(t)))
+}
