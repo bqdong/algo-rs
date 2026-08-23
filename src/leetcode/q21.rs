@@ -123,9 +123,7 @@ mod tests {
 
     impl TestCase {
         fn new(l1: Vec<i32>, l2: Vec<i32>, answer: Vec<i32>) -> TestCase {
-            let converter = |v| {
-                return ListNode::try_from(v).map_or_else(|_v| None, |v| Some(Box::new(v)));
-            };
+            let converter = |v| ListNode::try_from(v).map_or_else(|_v| None, |v| Some(Box::new(v)));
             TestCase {
                 l1: converter(l1),
                 l2: converter(l2),

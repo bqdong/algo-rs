@@ -13,7 +13,7 @@ lint:
     cargo clippy
 
 fix:
-    cargo clippy --fix --allow-dirty
+    cargo clippy --fix --allow-dirty --tests
 
 test:
     cargo t
